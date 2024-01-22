@@ -69,10 +69,10 @@ const images = [
 
 
 const ul = document.querySelector(".gallery");
-ul.insertAdjacentHTML("beforeend", createMarcup(images));
+ul.insertAdjacentHTML("beforeend", createMarkup(images));
 
 
-function createMarcup(arr) {
+function createMarkup(arr) {
   return arr
     .map(
       ({ preview, original, description }) =>
@@ -89,6 +89,5 @@ function createMarcup(arr) {
 
 const instance = new SimpleLightbox('.gallery a', {
     captionsData: "alt",
-    captionPosition: "bottom",
     captionDelay: 250,
 });
