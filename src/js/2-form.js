@@ -8,6 +8,11 @@ form.addEventListener('input', onFormInput);
 function onFormSubmit(event) {
   event.preventDefault();
 
+  if (form.elements.email.value === "" || form.elements.message.value === "") {
+    alert ('Всі поля форми повинні бути заповнені');
+    return;
+  }
+
   console.log('Відправляємо форму');
   console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)));
 
@@ -17,9 +22,10 @@ function onFormSubmit(event) {
 }
 
 function onFormInput(event) {
+  
   const formItems = {
-    email: form.elements.email.value,
-    message: form.elements.message.value,
+    email: form.elements.email.value.trim(),
+    message: form.elements.message.value.trim(),
   };
   localStorage.setItem(STORAGE_KEY, JSON.stringify(formItems));
 }
